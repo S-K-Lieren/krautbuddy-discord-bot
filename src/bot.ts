@@ -81,7 +81,7 @@ export class NeganBot {
         await this.client.login(this.options.token);
 
         this.client.user?.setActivity(this.options.url, {
-            type: "STREAMING",
+            type: "WATCHING",
             url: this.options.url
         });
 
@@ -99,7 +99,7 @@ export class NeganBot {
     }
 }
 
-// const bot: NeganBot = new NeganBot();
-// bot.registerModules([]);
+const bot: NeganBot = new NeganBot();
+bot.registerModules([]);
 
 export * from './public-api';

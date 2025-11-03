@@ -200,6 +200,7 @@ export abstract class AbstractModule {
         if (!this.commands) { return false; }
 
         const firstWord: string = msg.content.split(" ")[0].substr(1);
+
         return !!(this.commands[firstWord]);
     }
 
@@ -229,6 +230,7 @@ export abstract class AbstractModule {
 
             const firstWord: string = msg.content.split(" ")[0].substr(1);
             const command: Command | undefined = this.commands ? this.commands[firstWord] : undefined;
+            console.log('this commands', this.commands);
             if (command) {
 
                 if (command.onlyMods) {

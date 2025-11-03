@@ -37,7 +37,7 @@ export class SqlAdapter extends DatabaseAdapter {
 
     async read<T>(guildID: string, key: string): Promise<T | undefined> {
         return new Promise<T | undefined>((resolve: (value: T | PromiseLike<T> | undefined) => void, _reject: (reason?: any) => void) => {
-            this.db.get(`SELECT * FROM main WHERE guildID = "${guildID}" AND key = "${key}"`, (_err, row) => {
+            this.db.get(`SELECT * FROM main WHERE guildID = "${guildID}" AND key = "${key}"`, (_err, row: any) => {
                 if (_err || !row?.value) {
                     resolve(undefined);
                 }

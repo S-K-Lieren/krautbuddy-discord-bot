@@ -12,7 +12,6 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "strictNullChecks": true,
-        "suppressImplicitAnyIndexErrors": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noImplicitAny": false,

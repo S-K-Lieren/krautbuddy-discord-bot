@@ -1,4 +1,4 @@
-import { Channel, Client, Guild, Message, MessageEmbed, TextBasedChannels, TextChannel } from 'discord.js';
+import { AnyChannel, Channel, Client, Guild, Message, MessageEmbed, TextBasedChannel, TextChannel } from 'discord.js';
 import { DiscordID } from '.';
 
 export interface EmbedInfo {
@@ -13,7 +13,7 @@ export interface EmbedInfo {
 
 export class Util {
     static async sendMessageToChannel(client: Client, channelID: string, msg: string, embed?: EmbedInfo): Promise<void> {
-        const channel: Channel | null = await Util.getChannelByID(client, channelID);
+        const channel: AnyChannel | null = await Util.getChannelByID(client, channelID);
 
         if (channel && channel.isText()) {
             if (!embed) {
@@ -49,7 +49,7 @@ export class Util {
         return true;
     }
 
-    static async sendEmbedMessage(channel: TextBasedChannels | TextChannel | Channel | string | null, msg: string, embed: { info?: EmbedInfo, embed?: MessageEmbed }, client?: Client, pingText?: string): Promise<DiscordID | undefined> {
+    static async sendEmbedMessage(channel: TextBasedChannel | TextChannel | Channel | string | null, msg: string, embed: { info?: EmbedInfo, embed?: MessageEmbed }, client?: Client, pingText?: string): Promise<DiscordID | undefined> {
 
         if (!channel) {
             return;
@@ -101,7 +101,7 @@ export class Util {
         return (text?.length) ? `\`\`\`${text}\`\`\`` : '';
     }
 
-    static async getChannelByID(client: Client, channelID: string): Promise<Channel | null> {
+    static async getChannelByID(client: Client, channelID: string): Promise<AnyChannel | null> {
         return await client.channels.fetch(channelID);
     }
 }
