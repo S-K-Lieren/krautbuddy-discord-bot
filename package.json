@@ -19,10 +19,12 @@
     "dependencies": {
         "discord.js": "^13.2.0",
         "dotenv": "^10.0.0",
+        "express": "^5.1.0",
         "lodash": "^4.17.21",
         "sqlite3": "^5.0.2"
     },
     "devDependencies": {
+        "@types/express": "^5.0.5",
         "@types/lodash": "^4.14.176",
         "@types/sqlite3": "^3.1.7",
         "ncp": "^2.0.0",

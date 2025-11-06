@@ -3,6 +3,7 @@ import { AbstractModule, CoreModule, ModuleHub, Newable } from './core/module-sy
 import { Util } from './core';
 import { DatabaseAdapter } from './core/abstract-database-adapter';
 import { SqlAdapter } from './database-adapters/sqlite.adapter';
+import { HttpApiModule } from './core/module-system/http-api-module/http-api.module';
 
 require('dotenv').config();
 
@@ -100,6 +101,6 @@ export class NeganBot {
 }
 
 const bot: NeganBot = new NeganBot();
-bot.registerModules([]);
+bot.registerModules([HttpApiModule]);
 
 export * from './public-api';

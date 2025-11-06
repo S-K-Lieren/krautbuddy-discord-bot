@@ -1,4 +1,4 @@
-import { AnyChannel, Channel, Client, Guild, Message, MessageEmbed, TextBasedChannel, TextChannel } from 'discord.js';
+import { AnyChannel, Channel, Client, ColorResolvable, Guild, Message, MessageEmbed, TextBasedChannel, TextChannel } from 'discord.js';
 import { DiscordID } from '.';
 
 export interface EmbedInfo {
@@ -7,8 +7,9 @@ export interface EmbedInfo {
         iconURL: string;
     },
     img: string,
-    thumbnail: string
-    url: string
+    thumbnail: string,
+    url: string,
+    color: ColorResolvable
 };
 
 export class Util {
@@ -71,12 +72,12 @@ export class Util {
         if (embed.info) {
             e = new MessageEmbed()
                 .setDescription(msg)
-                .setThumbnail(embed.info.thumbnail)
+                .setThumbnail(embed.info.author.iconURL)
                 // .setThumbnail(`attachment://${thumbnailAttachment.id}`)
                 .setImage(embed.info.img.replace('{width}', '1600').replace('{height}', '900'))
                 // .setImage(`attachment://${imageAttachment.id}`)
                 .setURL(embed.info.url)
-                .setColor('DARK_VIVID_PINK');
+                .setColor(embed.info.color);
         }
         else if (embed.embed) {
             e = embed.embed;
